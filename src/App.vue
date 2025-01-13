@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <section class="nav-bar">
-      <h1>XXX的個人網站</h1>
-      <p>首頁</p>
-      <p>部落格</p>
-    </section>
+    <Navbar></Navbar>
     <section class="content">
       <router-view />
     </section>
   </div>
 </template>
 <script>
+import Navbar from './components/Navbar.vue'
 export default {
   name: "App",
+  components: {
+    Navbar
+  }
 };
 </script>
 
