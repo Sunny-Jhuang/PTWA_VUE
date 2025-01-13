@@ -5,6 +5,12 @@
 <script>
 export default {
   name: "BlogContent",
+  props: {
+    title: {
+      type: String,
+      default: "Blog Title"
+    }
+  }
 };
 </script>
 
