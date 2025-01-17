@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ms-auto" style="font-weight: bold;">
           <li class="nav-item d-none d-lg-block">
-            <router-link class="nav-link" :to="{ path: '/home' }">[首頁]</router-link>
+            <router-link class="nav-link" :to="{ path: '/' }">[首頁]</router-link>
           </li>
           <li class="nav-item d-none d-lg-block">
             <router-link class="nav-link" :to="{ path: '/blog' }">[部落格]</router-link>
@@ -17,7 +17,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">選單</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <router-link class="dropdown-item" :to="{ path: '/home' }">[首頁]</router-link>
+                <router-link class="dropdown-item" :to="{ path: '/' }">[首頁]</router-link>
               </li>
               <li>
                 <router-link class="dropdown-item" :to="{ path: '/blog' }">[部落格]</router-link>
