@@ -6,12 +6,10 @@ import { resolve } from 'path';
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/PTWA_VUE/' : './',
   plugins: [vue()],
+  base: "/PTWA_VUE",
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
     }
-  },
-  build: {
-    outDir: 'dist' // 輸出目錄
   }
 })
