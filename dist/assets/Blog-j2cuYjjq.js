@@ -1,0 +1,1 @@
+import{S as o}from"./SearchSidebar-DNkQnpsa.js";import{_ as a,c as r,b as t,o as c,r as s}from"./index-QBo4hGrw.js";import"./BlogContent-CN53dsPb.js";const n={name:"Blog",components:{SearchSidebar:o}},_={class:"blog"};function p(d,i,m,l,f,S){const e=s("SearchSidebar");return c(),r("div",_,[t(e)])}const B=a(n,[["render",p],["__scopeId","data-v-992d3f80"]]);export{B as default};
