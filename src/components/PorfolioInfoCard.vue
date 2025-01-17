@@ -10,6 +10,7 @@ export default {
 
 <style scoped>
 .portfolio-info-card {
+  font-weight: bold;
   border: 1px solid #ccc;
   text-align: center;
   display: grid;

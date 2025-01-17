@@ -1,20 +1,29 @@
 <template>
   <div class="blog">
-    <h1>Welcome to the Blog</h1>
-    <p>This is a simple blog page.</p>
+    <SearchSidebar></SearchSidebar>
   </div>
 </template>
 
 <script>
+import SearchSidebar from '../components/Blog/SearchSidebar.vue'
 export default {
   name: "Blog",
+  components: {
+    SearchSidebar
+  }
 };
 </script>
 
 <style scoped>
 .blog {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 50px;
+  display: flex;
+  height: 100vh;
+}
+
+.blog > SearchSidebar {
+  margin-left: 300px;
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 </style>

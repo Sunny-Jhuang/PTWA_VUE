@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
     {
@@ -9,13 +9,12 @@ const routes = [
     {
         path: '/blog',
         name: 'blog',
-        component: () => import('../views/Blog.vue'),
-        children: [
-          {
-            path: 'blogSearch',
-            component: () => import('../components/BlogSearch.vue')
-          }
-        ]
+        component: () => import('../views/Blog.vue')
+    },
+    {
+      path: '/blogSearch',
+      name: 'blogSearch',
+      component: () => import('../views/BlogSearch.vue')
     }
 ];
 

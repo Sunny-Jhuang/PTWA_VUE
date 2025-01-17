@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-content">blog標籤</div>
+  <div class="blog-content">[標題名稱]</div>
 </template>
 
 <script>
