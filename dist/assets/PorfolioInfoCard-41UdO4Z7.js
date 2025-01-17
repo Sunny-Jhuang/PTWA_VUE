@@ -1,0 +1,1 @@
+import{_ as o,o as a,c as r}from"./index-QBo4hGrw.js";const t={name:"PortfolioInfoCard"},c={class:"portfolio-info-card"};function e(s,n,_,f,d,i){return a(),r("div",c,"[照片]")}const l=o(t,[["render",e],["__scopeId","data-v-4616aa5b"]]);export{l as P};
