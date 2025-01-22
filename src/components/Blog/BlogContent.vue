@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-content">[標題名稱]</div>
+  <div class="blog-content">{{ this.title }}</div>
 </template>
 
 <script>

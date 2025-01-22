@@ -6,43 +6,42 @@
               <BackBlog></BackBlog>
           </button>
           <div class="photo-gallery">
-              <div class="photo-item">
-                  <div class="photo-placeholder" @click="showModal">
-                      <PorfolioInfoCard></PorfolioInfoCard>
+              <div class="photo-item" v-for="article in articles" :key="article.id">
+                  <div class="photo-placeholder" @click="openModal(article)">
+                      <span><img :src="article.photo" alt="article.title"></span>
                   </div>
-                  <div class="photo-title">[照片標題]</div>
-              </div>
-              <div class="photo-item">
-                  <div class="photo-placeholder" @click="showModal">
-                      <PorfolioInfoCard></PorfolioInfoCard>
-                  </div>
-                  <div class="photo-title">[照片標題]</div>
+                  <div class="photo-title">[{{ article.title }}]</div>
               </div>
           </div>
-          <ArticleModal ref="articleModal" @click="closeModal"></ArticleModal>
+          <ArticleModal @close="closeModal" v-if="selectedArticle" :article="selectedArticle"></ArticleModal>
         </div>
     </div>
 </template>
 
 <script>
-import PorfolioInfoCard from '../components/PorfolioInfoCard.vue'
 import ArticleModal from '../components/Blog/ArticleModal.vue'
 import BackBlog from '../components/Blog/BackBlog.vue'
 import SearchSidebar from '../components/Blog/SearchSidebar.vue'
+import articles from '../assets/search-articles.json'
 export default {
   name: 'BlogSearch',
   components: {
-    PorfolioInfoCard,
     ArticleModal,
     BackBlog,
     SearchSidebar
   },
   methods: {
-    showModal () {
-      this.$refs.articleModal.showModal()
+    openModal (article) {
+      this.selectedArticle = article
     },
     closeModal () {
-      this.$refs.articleModal.hideModal()
+      this.selectedArticle = null
+    }
+  },
+  data () {
+    return {
+      articles,
+      selectedArticle: null
     }
   }
 }
@@ -93,10 +92,11 @@ SearchSidebar {
   flex-direction: column;
 }
 
-PorfolioInfoCard {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
+.photo-placeholder img {
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .photo-title {

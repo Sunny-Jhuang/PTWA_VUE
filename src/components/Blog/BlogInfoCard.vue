@@ -1,30 +1,7 @@
 <template>
   <div class="blog-info-card">
-    <section class="des-section1">
-      <h2>{{ this.title }}</h2>
-      <hr>
-      <p>{{ this.content }}</p>
-    </section>
     <br>
-    <section class="des-section2">
-      <h2>{{ this.title }}</h2>
-      <hr>
-      <p>{{ this.content }}</p>
-    </section>
-    <br>
-    <section class="des-section3">
-      <h2>{{ this.title }}</h2>
-      <hr>
-      <p>{{ this.content }}</p>
-    </section>
-    <br>
-    <section class="des-section4">
-      <h2>{{ this.title }}</h2>
-      <hr>
-      <p>{{ this.content }}</p>
-    </section>
-    <br>
-    <section class="des-section5">
+    <section class="des-section">
       <h2>{{ this.title }}</h2>
       <hr>
       <p>{{ this.content }}</p>
@@ -49,11 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.des-section1,
-.des-section2,
-.des-section3,
-.des-section4,
-.des-section5 {
+.des-section {
   background-color: #fffde6;
   padding: 20px;
   margin: 0 auto;
@@ -61,21 +34,13 @@ export default {
   border-radius: 10px;
 }
 
-.des-section1,
-.des-section2,
-.des-section3,
-.des-section4,
-.des-section5 h2 {
+.des-section h2 {
   text-align: left;
   margin: 0 0 10px;
   color: #333;
 }
 
-.des-section1,
-.des-section2,
-.des-section3,
-.des-section4,
-.des-section5 p {
+.des-section p {
   text-align: left;
   line-height: 1.6;
   color: #555;

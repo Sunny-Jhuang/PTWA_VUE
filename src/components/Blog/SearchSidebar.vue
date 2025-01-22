@@ -8,16 +8,16 @@
             <h2>[文章分類]</h2>
             <ul class="blogcontent">
                 <li class="content-item">
-                <BlogContent></BlogContent>
+                <BlogContent v-for="(item, index) in bContent1" :key="index" :title="item.title"></BlogContent>
                 </li>
                 <li class="content-item">
-                <BlogContent></BlogContent>
+                <BlogContent v-for="(item, index) in bContent2" :key="index" :title="item.title"></BlogContent>
                 </li>
                 <li class="content-item">
-                <BlogContent></BlogContent>
+                <BlogContent v-for="(item, index) in bContent3" :key="index" :title="item.title"></BlogContent>
                 </li>
                 <li class="content-item">
-                <BlogContent></BlogContent>
+                <BlogContent v-for="(item, index) in bContent4" :key="index" :title="item.title"></BlogContent>
                 </li>
             </ul>
         </div>
@@ -34,6 +34,30 @@ export default {
   methods: {
     toPage () {
       this.$router.push('/blogSearch')
+    }
+  },
+  data () {
+    return {
+      bContent1: [
+        {
+          title: "[新聞資訊]"
+        }
+      ],
+      bContent2: [
+        {
+          title: "[教學指南]"
+        }
+      ],
+      bContent3: [
+        {
+          title: "[觀點評論]"
+        }
+      ],
+      bContent4: [
+        {
+          title: "[休閒娛樂]"
+        }
+      ]
     }
   }
 }
