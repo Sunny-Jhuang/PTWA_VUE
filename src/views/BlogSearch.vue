@@ -8,17 +8,18 @@
           <div class="photo-gallery">
               <div class="photo-item" v-for="article in articles" :key="article.id">
                   <div class="photo-placeholder" @click="openModal(article)">
-                      <span><img :src="article.photo" alt="article.title"></span>
+                      <span><img :src="resolvePhotoPath(article.photo)" alt="article-title"></span>
                   </div>
                   <div class="photo-title">[{{ article.title }}]</div>
               </div>
           </div>
-          <ArticleModal @close="closeModal" v-if="selectedArticle" :article="selectedArticle"></ArticleModal>
+          <ArticleModal @close="closeModal" v-if="showModal" :article="selectedArticle" :resolvePhotoPath="resolvePhotoPath"></ArticleModal>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 import ArticleModal from '../components/Blog/ArticleModal.vue'
 import BackBlog from '../components/Blog/BackBlog.vue'
 import SearchSidebar from '../components/Blog/SearchSidebar.vue'
@@ -33,16 +34,33 @@ export default {
   methods: {
     openModal (article) {
       this.selectedArticle = article
+      this.showModal = true
     },
     closeModal () {
+      this.showModal = false,
       this.selectedArticle = null
+    },
+    resolvePhotoPath (photo) {
+      try {
+        return new URL(`../assets/img/${photo.split('/').pop()}`, import.meta.url).href
+      } catch (error) {
+        console.error('Image not found: ', photo)
+        return ''
+      }
     }
   },
   data () {
     return {
-      articles,
-      selectedArticle: null
+      showModal: false,
+      articles
     }
+  },
+  created () {
+    axios.get('http://localhost:3000/articles').then(response => {
+      this.articles = response.data
+    }).catch(error => {
+      console.log('There was an error: '+error)
+    })
   }
 }
 </script>
@@ -62,9 +80,9 @@ SearchSidebar {
 }
 
 .content {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
+  flex: 1;
+  background-color: white;
+  padding: 20px;
 }
 
 .backblog {

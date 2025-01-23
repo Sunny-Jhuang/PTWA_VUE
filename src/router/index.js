@@ -15,6 +15,26 @@ const routes = [
       path: '/blogSearch',
       name: 'blogSearch',
       component: () => import('../views/BlogSearch.vue')
+    },
+    {
+      path: '/newsInfo',
+      name: 'newsInfo',
+      component: () => import('../views/NewsInfo.vue')
+    },
+    {
+      path: '/teaching',
+      name: 'teaching',
+      component: () => import('../views/Teaching.vue')
+    },
+    {
+      path: '/judgePT',
+      name: 'judgePT',
+      component: () => import('../views/JudgePT.vue')
+    },
+    {
+      path: '/relax&fun',
+      name: 'relax&fun',
+      component: () =>import('../views/Relax&Fun.vue')
     }
 ];
 

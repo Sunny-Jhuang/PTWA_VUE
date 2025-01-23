@@ -1,7 +1,10 @@
 <template>
-  <div class="blog">
-    <SearchSidebar></SearchSidebar>
-    <div class="content">
+    <div class="blogsearch">
+        <SearchSidebar></SearchSidebar>
+        <div class="content">
+          <button class="backblog">
+              <BackBlog></BackBlog>
+          </button>
           <div class="photo-gallery">
               <div class="photo-item" v-for="article in articles" :key="article.id">
                   <div class="photo-placeholder" @click="openModal(article)">
@@ -12,19 +15,21 @@
           </div>
           <ArticleModal @close="closeModal" v-if="showModal" :article="selectedArticle" :resolvePhotoPath="resolvePhotoPath"></ArticleModal>
         </div>
-  </div>
+    </div>
 </template>
 
 <script>
 import axios from 'axios'
 import ArticleModal from '../components/Blog/ArticleModal.vue'
+import BackBlog from '../components/Blog/BackBlog.vue'
 import SearchSidebar from '../components/Blog/SearchSidebar.vue'
-import articles from '../assets/blog-articles.json'
+import articles from '../assets/Categories/relax-articles.json'
 export default {
-  name: "Blog",
+  name: 'BlogSearch',
   components: {
-    SearchSidebar,
-    ArticleModal
+    ArticleModal,
+    BackBlog,
+    SearchSidebar
   },
   methods: {
     openModal (article) {
@@ -61,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.blog {
+.blogsearch {
   display: flex;
   flex: 1;
   height: 100vh;

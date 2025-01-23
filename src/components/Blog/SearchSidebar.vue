@@ -1,23 +1,23 @@
 <template>
     <div class="blogSidebar">
         <div class="search">
-            <input type="text" placeholder="搜尋文章..." />
+            <input type="text" placeholder="搜尋文章..." v-model="searchQuery">
             <button class="icon-search" @click.prevent="toPage">🔍</button>
         </div>
         <div class="categories">
             <h2>[文章分類]</h2>
             <ul class="blogcontent">
                 <li class="content-item">
-                <BlogContent v-for="(item, index) in bContent1" :key="index" :title="item.title"></BlogContent>
+                <BlogContent v-for="(item, index) in bContent1" :key="index" :title="item.title" @click.prevent="jump_1"></BlogContent>
                 </li>
                 <li class="content-item">
-                <BlogContent v-for="(item, index) in bContent2" :key="index" :title="item.title"></BlogContent>
+                <BlogContent v-for="(item, index) in bContent2" :key="index" :title="item.title" @click.prevent="jump_2"></BlogContent>
                 </li>
                 <li class="content-item">
-                <BlogContent v-for="(item, index) in bContent3" :key="index" :title="item.title"></BlogContent>
+                <BlogContent v-for="(item, index) in bContent3" :key="index" :title="item.title" @click.prevent="jump_3"></BlogContent>
                 </li>
                 <li class="content-item">
-                <BlogContent v-for="(item, index) in bContent4" :key="index" :title="item.title"></BlogContent>
+                <BlogContent v-for="(item, index) in bContent4" :key="index" :title="item.title" @click.prevent="jump_4"></BlogContent>
                 </li>
             </ul>
         </div>
@@ -33,11 +33,28 @@ export default {
   },
   methods: {
     toPage () {
-      this.$router.push('/blogSearch')
+      if (!this.searchQuery.trim()) {
+        alert('請輸入搜尋內容!')
+      } else {
+        this.$router.push('/blogSearch')
+      }
+    },
+    jump_1 () {
+      this.$router.push('/newsInfo')
+    },
+    jump_2 () {
+      this.$router.push('/teaching')
+    },
+    jump_3 () {
+      this.$router.push('/judgePT')
+    },
+    jump_4 () {
+      this.$router.push('/relax&fun')
     }
   },
   data () {
     return {
+      searchQuery: '',
       bContent1: [
         {
           title: "[新聞資訊]"
