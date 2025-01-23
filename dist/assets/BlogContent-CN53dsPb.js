@@ -1,1 +1,0 @@
-import{_ as t,o as e,c as o}from"./index-QBo4hGrw.js";const n={name:"BlogContent",props:{title:{type:String,default:"Blog Title"}}},s={class:"blog-content"};function c(a,r,_,p,l,d){return e(),o("div",s,"[標題名稱]")}const f=t(n,[["render",c],["__scopeId","data-v-9044ea8d"]]);export{f as B};
