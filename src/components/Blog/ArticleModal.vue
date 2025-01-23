@@ -60,12 +60,13 @@ export default {
 }
 
 .modal-container {
-    width: 60%;
-  background: #fff;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  background-color: white;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  position: relative;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .close-button {

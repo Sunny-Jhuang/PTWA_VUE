@@ -23,7 +23,7 @@ import axios from 'axios'
 import ArticleModal from '../components/Blog/ArticleModal.vue'
 import BackBlog from '../components/Blog/BackBlog.vue'
 import SearchSidebar from '../components/Blog/SearchSidebar.vue'
-import articles from '../assets/Categories/teaching-articles.json'
+import articles from '../assets/Articles.json'
 export default {
   name: 'BlogSearch',
   components: {
@@ -56,7 +56,7 @@ export default {
     }
   },
   created () {
-    axios.get('http://localhost:3000/articles').then(response => {
+    axios.get('http://localhost:3000/teaching').then(response => {
       this.articles = response.data
     }).catch(error => {
       console.log('There was an error: '+error)
