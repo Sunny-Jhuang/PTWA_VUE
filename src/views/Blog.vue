@@ -2,62 +2,64 @@
   <div class="blog">
     <SearchSidebar></SearchSidebar>
     <div class="content">
-          <div class="photo-gallery">
-              <div class="photo-item" v-for="article in articles" :key="article.id">
-                  <div class="photo-placeholder" @click="openModal(article)">
-                      <span><img :src="resolvePhotoPath(article.photo)" alt="article-title"></span>
-                  </div>
-                  <div class="photo-title">[{{ article.title }}]</div>
-              </div>
+      <div class="photo-gallery">
+        <div class="photo-item" v-for="article in articles" :key="article.id">
+          <div class="photo-placeholder" @click="openModal(article)">
+            <span
+              ><img :src="resolvePhotoPath(article.photo)" alt="article-title"
+            /></span>
           </div>
-          <ArticleModal @close="closeModal" v-if="showModal" :article="selectedArticle" :resolvePhotoPath="resolvePhotoPath"></ArticleModal>
+          <div class="photo-title">[{{ article.title }}]</div>
         </div>
+      </div>
+      <ArticleModal
+        @close="closeModal"
+        v-if="showModal"
+        :article="selectedArticle"
+        :resolvePhotoPath="resolvePhotoPath"
+      ></ArticleModal>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import ArticleModal from '../components/Blog/ArticleModal.vue'
-import SearchSidebar from '../components/Blog/SearchSidebar.vue'
-import articles from '../assets/Articles.json'
+import axios from "axios";
+import ArticleModal from "../components/Blog/ArticleModal.vue";
+import SearchSidebar from "../components/Blog/SearchSidebar.vue";
+import articlesOriginal from "../assets/Articles.json";
 export default {
   name: "Blog",
   components: {
     SearchSidebar,
-    ArticleModal
+    ArticleModal,
   },
   methods: {
-    openModal (article) {
-      this.selectedArticle = article
-      this.showModal = true
+    openModal(article) {
+      this.selectedArticle = article;
+      this.showModal = true;
     },
-    closeModal () {
-      this.showModal = false,
-      this.selectedArticle = null
+    closeModal() {
+      (this.showModal = false), (this.selectedArticle = null);
     },
-    resolvePhotoPath (photo) {
+    resolvePhotoPath(photo) {
       try {
-        return new URL(`../assets/img/${photo.split('/').pop()}`, import.meta.url).href
+        return new URL(
+          `../assets/img/${photo.split("/").pop()}`,
+          import.meta.url
+        ).href;
       } catch (error) {
-        console.error('Image not found: ', photo)
-        return ''
+        console.error("Image not found: ", photo);
+        return "";
       }
-    }
+    },
   },
-  data () {
+  data() {
     return {
       showModal: false,
-      articles
-    }
+      articles: articlesOriginal.blog,
+    };
   },
-  created () {
-    axios.get('http://localhost:3000/blog').then(response => {
-      this.articles = response.data
-    }).catch(error => {
-      console.log('There was an error: '+error)
-    })
-  }
-}
+};
 </script>
 
 <style scoped>
