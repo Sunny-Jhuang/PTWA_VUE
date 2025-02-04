@@ -42,15 +42,8 @@ export default {
       (this.showModal = false), (this.selectedArticle = null);
     },
     resolvePhotoPath(photo) {
-      try {
-        return new URL(
-          `../assets/img/${photo.split("/").pop()}`,
-          import.meta.url
-        ).href;
-      } catch (error) {
-        console.error("Image not found: ", photo);
-        return "";
-      }
+      const url = new URL(`../assets/img/${photo}`, import.meta.url).href;
+      return url;
     },
   },
   data() {
